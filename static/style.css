@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 1rem;
+    background: #f9fafb;
+    color: #333;
+}
+
+h2 {
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+    color: #222;
+}
+
+p {
+    margin-top: 0;
+    font-size: .9rem;
+    color: #666;
+}
+
+hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+#users {
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.user {
+    cursor: pointer;
+    padding: .5rem .75rem;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+}
+
+.user:hover {
+    background: #f3f3f3;
+}
+
+.selected {
+    background: #e6f0ff;
+    font-weight: bold;
+}
+
+#log {
+    white-space: pre-wrap;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: .5rem;
+    height: 200px;
+    overflow: auto;
+    background: #fff;
+    font-size: .9rem;
+}
+
+input {
+    padding: .4rem .6rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: .9rem;
+}
+
+button {
+    padding: .45rem .9rem;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: #fff;
+    font-size: .9rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #1e4fd8;
+}
+
+button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+}
+
+label {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .5rem;
+}

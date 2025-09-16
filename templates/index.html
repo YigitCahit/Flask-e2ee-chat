@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Flask Socket.IO E2EE Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Flask + Socket.IO — Client-side E2EE demo</h2>
+    <p><strong>Note:</strong> This is a simplified demonstration. Keys are generated locally in your browser using the
+        Web Crypto API. The server only forwards encrypted payloads and public keys.</p>
+
+    <label>Username: <input id="username"></label>
+    <button id="btnRegister">Register / Generate Keypair</button>
+    <hr>
+
+    <div style="display:flex; gap:1rem;">
+        <div style="width:220px">
+            <h4>Users</h4>
+            <div id="users"></div>
+        </div>
+        <div style="flex:1">
+            <h4>Chat</h4>
+            <div id="log"></div>
+            <div style="margin-top:.5rem">
+                <input id="message" style="width:70%" placeholder="Your message">
+                <button id="btnSend">Send to selected user</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
