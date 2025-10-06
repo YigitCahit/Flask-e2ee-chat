@@ -4,6 +4,8 @@ from flask_socketio import SocketIO, emit
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins='*')
 
+port = 4000
+
 users = {}
 
 @app.route('/')
@@ -53,5 +55,5 @@ def handle_disconnect():
         socketio.emit('user_list', user_list)
 
 if __name__ == '__main__':
-    print('Starting app on http://localhost:5000')
-    socketio.run(app, host='0.0.0.0', port=5000)
+    print(f'Starting app on http://localhost:{port}')
+    socketio.run(app, host='0.0.0.0', port=port)
