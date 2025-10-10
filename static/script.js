@@ -97,17 +97,31 @@ socket.on('private_message', async (data) => {
     }
 });
 
-document.getElementById('btnSend').addEventListener('click', async () => {
-    const msg = document.getElementById('message').value;
+async function sendMessage() {
+    const messageInput = document.getElementById('message');
+    const msg = messageInput.value;
+    if (!msg) return;
+    
     if (!selectedUser) { alert('Select a recipient'); return; }
     const recipient = userList[selectedUser];
     if (!recipient) { alert('Recipient public key not found'); return; }
+    
     try {
         const cipherB64 = await encryptForUser(recipient.public_key, msg);
         socket.emit('send_message', { to: selectedUser, payload: cipherB64, from: myName });
         log('[You -> ' + selectedUser + ']: ' + msg + ' (sent encrypted)');
+        messageInput.value = '';
     } catch (e) {
         console.error(e);
         alert('Encryption failed');
+    }
+}
+
+document.getElementById('btnSend').addEventListener('click', sendMessage);
+
+document.getElementById('message').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        sendMessage();
     }
 });
